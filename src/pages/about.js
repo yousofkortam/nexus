@@ -6,7 +6,7 @@ import manager3 from '../images/im10.png';
 import { Container, Row, Col , Image ,Card, CardGroup } from "react-bootstrap";
 
 
-function About() {
+ export default function About() {
   return (
     <Container>
       <Row className="mb-5 mt-3">
@@ -74,4 +74,3 @@ function About() {
   );
 }
 
-export default About;

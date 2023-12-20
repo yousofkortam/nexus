@@ -2,7 +2,7 @@ import {React , useState} from "react";
 import { Container, Row, Col ,Button ,Form } from "react-bootstrap";
 
 
-function Contact() {
+export default function Contact() {
   const  [data , setData] = useState({name:"", email:"", message:""});
   const handleChange = (e) => {
     const name = e.target.name;
@@ -89,4 +89,3 @@ function Contact() {
   );
 }
 
-export default Contact;
