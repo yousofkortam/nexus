@@ -1,44 +1,23 @@
-import React from "react";
-import { AuthProvider } from "./components/Auth";
-import { Route, Routes } from "react-router-dom"; // Routes , Route
-import { Home } from "./components/Home";
-import { NavigationBar } from "./components/NavigationBar";
-
-
-
-
-
-import { Profile } from "./components/Profile";
-import Login from "./components/Login";
-import Register from"./components/Register";
-import "./App.css";
-import RequireAuth from "./components/RequireAuth";
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css';
+import ProductDetails from './components/ProductDetails';
+import Products_List from './components/Products_List';
+import About from './pages/about';
+import Contact from './pages/contact';
 
 function App() {
   return (
-    <AuthProvider>
-      
-      <NavigationBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-
-        
-
-
-        <Route path="profile" element={
-          <RequireAuth>
-            <Profile />
-          </RequireAuth>
-        
-          } 
-        />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        
-      </Routes>
-    </AuthProvider>
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/product/:productId" element={<ProductDetails />} />
+          <Route path="/" element={<Products_List />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
-export default App;
+export default App
