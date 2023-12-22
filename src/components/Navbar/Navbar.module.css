@@ -1,0 +1,11 @@
+nav {
+    display: flex;
+    align-items: center;
+  }
+  nav a {
+    margin: 30px;
+    font-size: 18px;
+  }
+  .active {
+    color: blue;
+  }

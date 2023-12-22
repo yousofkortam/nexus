@@ -1,7 +1,7 @@
 import { React } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
-export default function Register() {
+function Register() {
   const navigate = useNavigate()
   const location = useLocation();
   const redirectPath = location.state?.path || '/';
@@ -42,3 +42,5 @@ export default function Register() {
     </div>
   )
 }
+
+export default Register;

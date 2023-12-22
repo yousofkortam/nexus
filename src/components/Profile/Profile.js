@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from "react-router-dom";
 
-export const Profile = () => {
+function Profile() {
   const navigate = useNavigate()
   const handleLogout = ()=>{
     navigate("/login")
@@ -22,3 +22,5 @@ export const Profile = () => {
     </>
   )
 }
+
+export default Profile;

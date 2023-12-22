@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './style.module.css';
-function Product(props) {
+import '../../style.css';
+
+function ProductCard(props) {
   const { product, showButton } = props;
   const maxLength = 40;
 
@@ -62,4 +63,4 @@ function Product(props) {
   );
 }
 
-export default Product;
+export default ProductCard;

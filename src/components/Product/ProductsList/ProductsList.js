@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import Product from "./Product";
-import './style.module.css';
+import ProductCard from "../ProductCard/ProductCard";
+import '../../style.css';
+
 function ProductsList() {
   const api_url = "https://fakestoreapi.com/products";
   const [products, setProducts] = useState([]);
@@ -77,7 +78,7 @@ function ProductsList() {
         <div className="row  row-cols-md-2 row-cols-lg-3 g-4 mt-4"> 
           {products.map((product) => (
             <div key={product.id} className="col">
-              <Product product={product} showButton={true} />
+              <ProductCard product={product} showButton={true} />
             </div>
           ))}
         </div>
