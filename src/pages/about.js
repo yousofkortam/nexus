@@ -3,7 +3,7 @@ import shop from '../images/shop.png';
 import manager1 from '../images/im8.png';
 import manager2 from '../images/im9.png';
 import manager3 from '../images/im10.png';
-import { Container, Row, Col , Image ,Card, CardGroup } from "react-bootstrap";
+import { Container, Row, Col , Image ,Card } from "react-bootstrap";
 
 
  export default function About() {
