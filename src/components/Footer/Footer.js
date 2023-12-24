@@ -1,4 +1,6 @@
 import React from 'react';
+import 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 function Footer() {
   return (
@@ -21,10 +23,10 @@ function Footer() {
           <div className="col-md-4">
             <h5>Follow Us</h5>
             <div className="d-flex">
-              <a href="#" className="me-3"><i className="bi bi-facebook"></i></a>
-              <a href="#" className="me-3"><i className="bi bi-twitter"></i></a>
-              <a href="#" className="me-3"><i className="bi bi-linkedin"></i></a>
-              <a href="#" className="me-3"><i className="bi bi-instagram"></i></a>
+              <a href="https://www.facebook.com" className="me-3"><FaFacebook /></a>
+              <a href="https://www.twitter.com" className="me-3"><FaTwitter /></a>
+              <a href="https://www.linkedin.com" className="me-3"><FaLinkedin /></a>
+              <a href="https://www.instagram.com" className="me-3"><FaInstagram /></a>
             </div>
           </div>
         </div>
