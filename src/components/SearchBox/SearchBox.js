@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function SearchBox({handleSearch}) {
+function SearchBox({ handleSearch, setSearchQuery }) {
+    const [searchValue, setSearchValue] = useState('');
+
     const handleSearchClick = () => {
+        setSearchQuery(searchValue);
         handleSearch();
     };
+
     return (
         <div className="container mt-5">
             <div className="row justify-content-center">
@@ -15,8 +19,12 @@ function SearchBox({handleSearch}) {
                             placeholder="Search for products..."
                             aria-label="Search"
                             aria-describedby="searchButton"
+                            value={searchValue}
+                            onChange={(e) => setSearchValue(e.target.value)}
                         />
-                        <button className="btn btn-success" type="button" id="searchButton" onClick={handleSearchClick}>
+                        <button className="btn btn-success" type="button" id="searchButton"
+                            onClick={handleSearchClick}
+                        >
                             Search
                         </button>
                     </div>

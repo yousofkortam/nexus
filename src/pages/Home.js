@@ -15,7 +15,7 @@ function Home() {
     const api_url = "https://fakestoreapi.com/products";
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [searchQuery] = useState("");
+    const [searchQuery, setSearchQuery] = useState("");
 
     useEffect(() => {
         fetchProducts(api_url, setProducts);
@@ -33,7 +33,7 @@ function Home() {
     return (
         <>
             {/* <Banner /> */}
-            <SearchBox handleSearch={searchProducts} />
+            <SearchBox handleSearch={searchProducts} setSearchQuery={setSearchQuery} />
             <CategoryButtons
                 categories={categories}
                 getProductInCategory={getProductInCategory}
