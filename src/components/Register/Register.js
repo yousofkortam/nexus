@@ -1,79 +1,52 @@
-import React, { useState } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { React, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { useAuth } from '../Auth'
+
 
 function Register() {
-  const navigate = useNavigate();
+  const [user1, setUser1] = useState('')
+  const [password1, setPassword1] = useState('')
+  const auth = useAuth()
+  const navigate = useNavigate()
   const location = useLocation();
   const redirectPath = location.state?.path || '/';
 
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
   const handleRegister = () => {
-    // TODO: Implement registration logic
-    navigate(redirectPath, { replace: true });
+
+    auth.register(user1, password1)
+
+    navigate(redirectPath, { replace: true })
   }
 
+
   return (
-    <div className="container mt-5">
-      <div className="card">
-        <div className="card-body">
-          <h4 className="card-title text-center mb-4">Create an Account</h4>
-          <form>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email address</label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                aria-describedby="emailHelp"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <div id="emailHelp" className="form-text">
-                We'll never share your email with anyone else.
-              </div>
-            </div>
-            <div className="mb-3">
-              <label htmlFor="username" className="form-label">Username</label>
-              <input
-                type="text"
-                className="form-control"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">Password</label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-
-            <button
-              type="button"
-              className="btn btn-primary btn-block"
-              onClick={handleRegister}
-            >
-              Register
-            </button>
-          </form>
-
-          <p className="mt-3 text-center">
-            Already have an account?{' '}
-            <Link to="/login">Login</Link>
-          </p>
+    
+      <div class='container'>
+        <h4>
+          Create an Account
+        </h4>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </input>
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
-      </div>
-    </div>
-  );
-}
+        <div class="mb-3">
+          <label class="form-label">UserName</label>
+          <input class="form-control" type="text"
+            onChange={(e) => setUser1(e.target.value)} />
 
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1"
+            onChange={(e) => setPassword1(e.target.value)} />
+
+        </div>
+
+        <button onClick={handleRegister} class="btn btn-primary">Register</button>
+      
+    </div>
+  )
+}
 export default Register;

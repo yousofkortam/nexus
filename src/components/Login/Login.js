@@ -1,66 +1,60 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { React, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { useAuth } from '../Auth'
+import { Link } from "react-router-dom";
 
-const Login = () => {
-  const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+export default function Login() {
+  const [user, setUser] = useState('')
+  const [password, setPassword] = useState('')
+
+  const auth = useAuth()
+  const navigate = useNavigate()
+  // const location =useLocation();
+  // const redirectPath = location.state?.path || '/';
+
+
 
   const handleLogin = () => {
-    // TODO: Implement login logic
-    navigate('/', { replace: true });
-  };
+    auth.login(user, password)
+
+    // navigate(redirectPath, { replace : true })
+  }
 
   return (
-    <div className="container mt-5">
-      <div className="card">
-        <div className="card-body">
-          <h1 className="card-title text-center mb-4">Login</h1>
-          <form>
-            <div className="mb-3">
-              <label htmlFor="username" className="form-label">
-                Username
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
 
-            <button
-              type="button"
-              className="btn btn-primary btn-block"
-              onClick={handleLogin}
-            >
-              Login
-            </button>
-          </form>
+   
 
-          <p className="mt-3 text-center">
-            Don't have an account?{' '}
-            <Link to="/register">Register</Link>
-          </p>
+      <div class='container'>
+        <div class="mb-3">
+          <h1>
+            Login
+          </h1>
+          <label class="form-label">UserName</label>
+          <input class="form-control"
+            type="text"
+            onChange={(e) => setUser(e.target.value)}
+          />
         </div>
-      </div>
-    </div>
-  );
-};
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1"
+            onChange={(e) => setPassword(e.target.value)}></input>
+        </div>
 
-export default Login;
+        <button class="btn btn-primary" onClick={handleLogin}>Login</button>
+
+        <p>
+          Don't have an Account?{" "}
+          <Link to="/register">
+            <span className="hover:text-blue-600 duration-300">Register</span>
+          </Link>
+        </p>
+      
+
+
+
+
+    </div>
+
+  );
+}

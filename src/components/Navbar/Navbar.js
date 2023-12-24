@@ -1,8 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../Auth";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Navbar() {
+  const auth = useAuth();
 
   const navLinkStyles = ({ isActive }) => {
     return {
@@ -14,7 +16,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
-        <NavLink className="navbar-brand" style={{fontWeight: "bold"}} to="/">
+        <NavLink className="navbar-brand" style={{ fontWeight: "bold" }} to="/">
           nexus
         </NavLink>
         {/* <a className="navbar-brand" href="/">nexus</a> */}
@@ -35,14 +37,22 @@ function Navbar() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" style={navLinkStyles} to="/contact">
+              <NavLink className="nav-link"  style={navLinkStyles} to="/contact">
                 Contact
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" style={navLinkStyles} to="/login">
-                Login
+              <NavLink className="nav-link" style={navLinkStyles} to="/profile">
+                Profile
               </NavLink>
+            </li>
+            <li className="nav-item">
+              {!auth && (
+                <NavLink className="nav-link" style={navLinkStyles} to="/login">
+                  Login
+                </NavLink>
+
+              )}
             </li>
 
           </ul>
