@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import ProductList from '../components/Product/ProductsList/ProductsList';
+import Banner from '../components/Banner/Banner';
 import SearchBox from "../components/SearchBox/SearchBox";
 import CategoryButtons from "../components/CategoryButtons/CategoryButtons";
 import {
