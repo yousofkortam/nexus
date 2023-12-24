@@ -4,15 +4,21 @@ import ProductDetails from './components/Product/ProductDetails/ProductDetails';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Navbar from './components/Navbar/Navbar';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
-import Profile from './components/Profile/Profile';
+
 import Home from './pages/Home';
 import Footer from './components/Footer/Footer';
+import { AuthProvider } from "./components/Auth";
+
+
+import { Profile } from "./components/Profile";
+import Login from "./components/Login";
+import Register from"./components/Register";
+import "./App.css";
+import RequireAuth from "./components/RequireAuth";
 
 function App() {
   return (
-    <>
+    <AuthProvider>
     <div className="App">
       <Navbar />
         <Routes>
@@ -22,11 +28,17 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={
+          <RequireAuth>
+            <Profile />
+          </RequireAuth>
+        
+          } 
+        />
         </Routes>
     </div>
     <Footer />
-    </>
+    </AuthProvider>
   );
 }
 
