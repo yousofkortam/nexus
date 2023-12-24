@@ -10,27 +10,31 @@ function ProductCard(props) {
     if (description.length <= maxLength) {
       return description;
     }
-    return description.substring(0, maxLength) + "...";
+    return description.substring(0, maxLength) + '...';
   };
 
   return (
-    <div className="card">
+    <div className="card h-100">
       <div className="image-container">
-        <img src={product.image} className="card-img-top" alt={product.title} />
+        <img
+          src={product.image}
+          className="card-img-top img-fluid rounded"
+          alt={product.title}
+          style={{ height: '200px', width: '170px' }}
+        />
       </div>
       <div className="card-body">
         <h5 className="card-title">{product.title}</h5>
-        <p className="card-text">
-          {truncateDescription(product.description, maxLength)}
-        </p>
-        <p className="card-text">{product.price} $</p>
+        <p className="card-text">{truncateDescription(product.description, maxLength)}</p>
+        <p className="card-text">${product.price}</p>
         {showButton && (
           <Link className="btn btn-success" to={`/product/${product.id}`}>
             Details
           </Link>
         )}
       </div>
-      <div className="card-footer">
+      <div className="card-footer d-flex justify-content-between align-items-center">
+        {/* Add additional elements as needed */}
         <a href="#" className="card-link">
           <svg
             xmlns="http://www.w3.org/2000/svg"
