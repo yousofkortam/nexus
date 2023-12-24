@@ -1,6 +1,6 @@
 import { React, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { useAuth } from '../Auth'
+import { useAuth } from './Auth'
 import { Link } from "react-router-dom";
 
 export default function Login() {
@@ -22,7 +22,7 @@ export default function Login() {
 
   return (
 
-   
+    <div>
 
       <div class='container'>
         <div class="mb-3">
@@ -49,7 +49,7 @@ export default function Login() {
             <span className="hover:text-blue-600 duration-300">Register</span>
           </Link>
         </p>
-      
+      </div>
 
 
 

@@ -1,9 +1,9 @@
 import { React, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { useAuth } from '../Auth'
+import { useAuth } from './Auth'
 
 
-function Register() {
+export default function Register() {
   const [user1, setUser1] = useState('')
   const [password1, setPassword1] = useState('')
   const auth = useAuth()
@@ -49,4 +49,3 @@ function Register() {
     </div>
   )
 }
-export default Register;

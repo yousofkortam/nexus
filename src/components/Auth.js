@@ -38,7 +38,9 @@ export const AuthProvider = ({ children }) => {
     // Check if user is already registered
     if (isRegisteredBefore) {
         console.log('User already registered');
+        
         alert("User already registered create another ")
+        
       } else {
 
         //    sign in مايرحعشى يعمل تانى  sign upحطبت كله هنا عشان اما يعمل 
