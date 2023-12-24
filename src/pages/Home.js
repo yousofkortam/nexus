@@ -32,7 +32,7 @@ function Home() {
 
     return (
         <>
-            {/* <Banner /> */}
+            <Banner />
             <SearchBox handleSearch={searchProducts} setSearchQuery={setSearchQuery} />
             <CategoryButtons
                 categories={categories}
