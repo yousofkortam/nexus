@@ -12,32 +12,37 @@ import { AuthProvider } from "./components/Auth";
 
 import { Profile } from "./components/Profile";
 import Login from "./components/Login";
-import Register from"./components/Register";
+import Register from "./components/Register";
 import "./App.css";
 import RequireAuth from "./components/RequireAuth";
+import ShoppingCartProvider from './context/ShoppingCartContext';
+import CheckOut from './components/CheckOut/CheckOut';
 
 function App() {
   return (
     <AuthProvider>
-    <div className="App">
-      <Navbar />
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/product/:productId" element={<ProductDetails />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/profile" element={
-          <RequireAuth>
-            <Profile />
-          </RequireAuth>
-        
-          } 
-        />
-        </Routes>
-    </div>
-    <Footer />
+      <div className="App">
+        <ShoppingCartProvider>
+        <Navbar />
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/product/:productId" element={<ProductDetails />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path='/CheckOut' element={<CheckOut/>}/>
+            <Route path="/profile" element={
+              <RequireAuth>
+                <Profile />
+              </RequireAuth>
+
+            }
+            />
+          </Routes>
+        </ShoppingCartProvider>
+      </div>
+      <Footer />
     </AuthProvider>
   );
 }

@@ -1,12 +1,12 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
-import { useShoppingCart } from "../../../context/ShoppingCartContext";
-import FormatCurrency from "../../FormatCurrency";
+import { useShoppingCart } from "../context/ShoppingCartContext";
+import FormatCurrency from "./FormatCurrency";
 import { Link } from 'react-router-dom';
 
 
 
-function ProductCard({ id, name, price, imgUrl }) {
+const StoreItem = ({ id, name, price, imgUrl }) => {
   const {
     getItemQuantity,
     increaseCartQuantity,
@@ -31,7 +31,7 @@ function ProductCard({ id, name, price, imgUrl }) {
         </Card.Title>
 
         
-          <Link className="btn btn-success mb-1" to={`/product/${id}`}>
+          <Link className="btn btn-success mb-1">
             Details
           </Link>
         
@@ -73,4 +73,4 @@ function ProductCard({ id, name, price, imgUrl }) {
   );
 };
 
-export default ProductCard;
+export default StoreItem;

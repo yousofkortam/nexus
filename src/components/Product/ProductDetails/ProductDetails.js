@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import '../../style.css';
+import { Button } from "react-bootstrap";
+import './ProductDetails.module.css'; 
 
 function ProductDetails() {
   const api_url = "https://fakestoreapi.com/products";
